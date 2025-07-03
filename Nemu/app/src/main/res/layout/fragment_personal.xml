@@ -4,35 +4,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".PersonalFragment">
+    tools:context=".PersonalFragment"
+    android:background="@drawable/rounded_shadow"
+    android:orientation="vertical"
+    >
 
-<!--    title "Personal" -->
-
-    <TextView
+<!--    Personal title -->
+    <LinearLayout
+        android:id="@+id/personal_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="This is personal page"
-        android:gravity="center"
-        android:textSize="24sp"
-        />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:minHeight="80dp"
+        android:layout_margin="10dp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:text="Personal"
+            android:textSize="30sp"
+            android:layout_gravity="center_vertical"
+            />
+
+    </LinearLayout>
 
 <!--    linear layout container : text "Profile" + icon "Person"-->
     <LinearLayout
         android:id="@+id/profile_option"
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".3"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         android:background="@drawable/rounded_shadow"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width=""
-            android:layout_height=""
-            android:text="Profile"/>
+        >
 
         <ImageView
-            android:layout_width=""
-            android:layout_height=""
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:minWidth="10dp"
+            android:minHeight="10dp"
             app:srcCompat="@drawable/person"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:text="Profile"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             />
 
     </LinearLayout>
@@ -40,20 +67,35 @@
     <!--    linear layout container : text "Schedule" + icon "Calendar"-->
     <LinearLayout
         android:id="@+id/schedule_option"
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
         android:background="@drawable/rounded_shadow"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_margin="10dp"
 
-        <TextView
-            android:layout_width=""
-            android:layout_height=""
-            android:text="Schedule"/>
+        >
 
         <ImageView
-            android:layout_width=""
-            android:layout_height=""
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:minWidth="10dp"
+            android:minHeight="10dp"
             app:srcCompat="@drawable/calendar"
+            android:layout_gravity="center_vertical"
+
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:text="Schedule"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             />
 
     </LinearLayout>
@@ -61,20 +103,34 @@
     <!--    linear layout container : text "Bookmark" + icon "Bookmark"-->
     <LinearLayout
         android:id="@+id/bookmark_option"
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".3"
         android:background="@drawable/rounded_shadow"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width=""
-            android:layout_height=""
-            android:text="Bookmark"/>
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        >
 
         <ImageView
-            android:layout_width=""
-            android:layout_height=""
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:minWidth="10dp"
+            android:minHeight="10dp"
             app:srcCompat="@drawable/bookmark_hollow"
+            android:layout_gravity="center_vertical"
+
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:text="Bookmark"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             />
 
     </LinearLayout>
@@ -82,20 +138,33 @@
     <!--    linear layout container : text "Booking" + icon "Check"-->
     <LinearLayout
         android:id="@+id/booking_option"
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
         android:background="@drawable/rounded_shadow"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width=""
-            android:layout_height=""
-            android:text="Booking"/>
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        >
 
         <ImageView
-            android:layout_width=""
-            android:layout_height=""
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:minWidth="10dp"
+            android:minHeight="10dp"
             app:srcCompat="@drawable/check"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:text="Booking"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             />
 
     </LinearLayout>
@@ -103,20 +172,33 @@
     <!--    linear layout container : text "Settings" + icon "Gear"-->
     <LinearLayout
         android:id="@+id/settings_option"
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
         android:background="@drawable/rounded_shadow"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width=""
-            android:layout_height=""
-            android:text="Settings"/>
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        >
 
         <ImageView
-            android:layout_width=""
-            android:layout_height=""
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:minWidth="10dp"
+            android:minHeight="10dp"
             app:srcCompat="@drawable/settings"
+            android:layout_gravity="center_vertical"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:text="Settings"
+            android:textSize="12sp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             />
 
     </LinearLayout>

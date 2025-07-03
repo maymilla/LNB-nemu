@@ -1,5 +1,6 @@
 package com.example.nemu
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -38,6 +39,46 @@ class PersonalFragment : Fragment(R.layout.fragment_personal) {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_personal, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        schedule container
+        val scheduleContainer = view.findViewById<LinearLayout>(R.id.schedule_option)
+        scheduleContainer.setOnClickListener {
+            val intent = Intent(requireContext(), ScheduleFragment::class.java)
+            startActivity(intent)
+        }
+
+//        profile container
+        val profileContainer = view.findViewById<LinearLayout>(R.id.profile_option)
+        profileContainer.setOnClickListener {
+            val intent = Intent(requireContext(), ProfileFragment::class.java)
+            startActivity(intent)
+        }
+
+        //        settings container
+        val settingsContainer = view.findViewById<LinearLayout>(R.id.settings_option)
+        profileContainer.setOnClickListener {
+            val intent = Intent(requireContext(), SettingsFragment::class.java)
+            startActivity(intent)
+        }
+
+        //        bookmark container
+        val bookmarkContainer = view.findViewById<LinearLayout>(R.id.bookmark_option)
+        profileContainer.setOnClickListener {
+            val intent = Intent(requireContext(), BookmarkFragment::class.java)
+            startActivity(intent)
+        }
+
+        //        bookings container
+        val bookingContainer = view.findViewById<LinearLayout>(R.id.booking_option)
+        profileContainer.setOnClickListener {
+            val intent = Intent(requireContext(), BookingFragment::class.java)
+            startActivity(intent)
+        }
+
     }
 
     companion object {

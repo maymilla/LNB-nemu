@@ -3,6 +3,7 @@ package com.example.nemu
 import android.annotation.SuppressLint
 import android.media.Image
 import android.os.Bundle
+import android.widget.GridView
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -40,49 +41,6 @@ class MainActivity : AppCompatActivity() {
                 .commit()
             onClickNav("personal")
         }
-
-//        personal page navigation
-//        schedule
-        findViewById<LinearLayout>(R.id.schedule_option).setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ScheduleFragment())
-                .commit()
-            onClickNav("personal")
-        }
-
-//    profile
-        findViewById<LinearLayout>(R.id.bottom_nav_personal).setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, PersonalFragment())
-                .commit()
-            onClickNav("personal")
-        }
-
-//        bookmark
-        findViewById<LinearLayout>(R.id.bottom_nav_personal).setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, PersonalFragment())
-                .commit()
-            onClickNav("personal")
-        }
-
-//        booking
-        findViewById<LinearLayout>(R.id.bottom_nav_personal).setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, PersonalFragment())
-                .commit()
-            onClickNav("personal")
-        }
-
-//        settings
-        findViewById<LinearLayout>(R.id.bottom_nav_personal).setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, PersonalFragment())
-                .commit()
-            onClickNav("personal")
-        }
-
-
     }
 
     fun onClickNav(selected : String){

@@ -3,88 +3,176 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ScheduleFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ScheduleFragment"
+    android:orientation="vertical">
 
 <!--    linear layout container for title : text "Add Schedule" + back icon -->
     <LinearLayout
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:layout_weight="0.1"
         >
 
         <ImageView
-            android:layout_width=""
-            android:layout_height=""
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            app:srcCompat = "@drawable/back"
+            android:layout_gravity="center"
             />
 
         <TextView
-            android:layout_width=""
-            android:layout_height=""
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:text="Add Schedule"
+            android:textSize="30sp"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
             />
         
     </LinearLayout>
 
 <!--    linear layout container for time range : container for start and end time + text "Select your time range"-->
     <LinearLayout
-        android:layout_width=""
-        android:layout_height=""
-        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="4dp"
         >
 
-<!--        container for start time -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width=""
-            android:layout_height=""
-        >
-<!--            start + time-->
-            <TextView
-                android:layout_width=""
-                android:layout_height=""
-                android:text="Start"
-                />
+        <TextView
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="0.3"
+            android:text="Select your time range"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            />
 
-            <Button
-                android:id="@+id/btn_time_start"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@color/black"
-                />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--       container for end time -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width=""
-            android:layout_height=""
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="0.7"
+            android:layout_gravity="center"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="10dp"
             >
-            <!--            end + time-->
-            <TextView
-                android:layout_width=""
-                android:layout_height=""
-                android:text="End"
-                />
 
-            <Button
-                android:id="@+id/btn_time_end"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:background="@color/black"
-                />
+    <!--        container for start time -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="4dp"
+                >
 
+                <!-- Start Text -->
+                <TextView
+                    android:id="@+id/start_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Start"
+                    android:gravity="center_vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_time_start"
+                    app:layout_constraintWidth_percent="0.4" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <!-- Time Button -->
+                <Button
+                    android:id="@+id/btn_time_start"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pick Time"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/start_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.6" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--       container for end time -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="4dp">
+
+                <!-- Start Text -->
+                <TextView
+                    android:id="@+id/end_text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="End"
+                    android:gravity="center_vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_time_end"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <!-- Time Button -->
+                <Button
+                    android:id="@+id/btn_time_end"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Pick Time"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/end_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.6" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
-    
 <!--    grid container for places to visit : grid style + text "Pick the places you want to visit" -->
-    <GridView
-        android:id="@+id/places_to_visit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="3"
-        android:horizontalSpacing="8dp"
-        android:verticalSpacing="8dp" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:paddingHorizontal="10dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        >
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="Pick the places you want to visit"
+            android:layout_gravity="center_vertical"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:paddingHorizontal="10dp"
+            />
+
+        <GridView
+            android:id="@+id/places_to_visit_grid"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.9"
+            android:horizontalSpacing="8dp"
+            android:numColumns="2"
+            android:verticalSpacing="8dp"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+
 
 
 

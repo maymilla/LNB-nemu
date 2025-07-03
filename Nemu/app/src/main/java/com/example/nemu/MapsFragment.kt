@@ -40,19 +40,3 @@ class MapsFragment : Fragment(R.layout.fragment_maps) {
         view.findViewById<TextView>(R.id.place_address_2).text = "Jl. Melati No. 5"
     }
 }
-
-
-class GridAdapter(private val context: Context, private val data: List<String>) : BaseAdapter() {
-    override fun getCount() = data.size
-    override fun getItem(position: Int) = data[position]
-    override fun getItemId(position: Int) = position.toLong()
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val textView = TextView(context)
-        textView.text = data[position]
-        textView.gravity = Gravity.CENTER
-        textView.setPadding(16, 16, 16, 16)
-        textView.layoutParams = AbsListView.LayoutParams(200, 200)
-        return textView
-    }
-}
