@@ -2,4 +2,5 @@
 <resources>
 
     <style name="Theme.Nemu" parent="Theme.AppCompat.Light.NoActionBar" />
+
 </resources>

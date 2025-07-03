@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".PersonalFragment">
+
+<!--    title "Personal" -->
 
     <TextView
         android:layout_width="match_parent"
@@ -13,4 +16,109 @@
         android:textSize="24sp"
         />
 
-</FrameLayout>
+<!--    linear layout container : text "Profile" + icon "Person"-->
+    <LinearLayout
+        android:id="@+id/profile_option"
+        android:layout_width=""
+        android:layout_height=""
+        android:background="@drawable/rounded_shadow"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width=""
+            android:layout_height=""
+            android:text="Profile"/>
+
+        <ImageView
+            android:layout_width=""
+            android:layout_height=""
+            app:srcCompat="@drawable/person"
+            />
+
+    </LinearLayout>
+
+    <!--    linear layout container : text "Schedule" + icon "Calendar"-->
+    <LinearLayout
+        android:id="@+id/schedule_option"
+        android:layout_width=""
+        android:layout_height=""
+        android:background="@drawable/rounded_shadow"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width=""
+            android:layout_height=""
+            android:text="Schedule"/>
+
+        <ImageView
+            android:layout_width=""
+            android:layout_height=""
+            app:srcCompat="@drawable/calendar"
+            />
+
+    </LinearLayout>
+
+    <!--    linear layout container : text "Bookmark" + icon "Bookmark"-->
+    <LinearLayout
+        android:id="@+id/bookmark_option"
+        android:layout_width=""
+        android:layout_height=""
+        android:background="@drawable/rounded_shadow"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width=""
+            android:layout_height=""
+            android:text="Bookmark"/>
+
+        <ImageView
+            android:layout_width=""
+            android:layout_height=""
+            app:srcCompat="@drawable/bookmark_hollow"
+            />
+
+    </LinearLayout>
+
+    <!--    linear layout container : text "Booking" + icon "Check"-->
+    <LinearLayout
+        android:id="@+id/booking_option"
+        android:layout_width=""
+        android:layout_height=""
+        android:background="@drawable/rounded_shadow"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width=""
+            android:layout_height=""
+            android:text="Booking"/>
+
+        <ImageView
+            android:layout_width=""
+            android:layout_height=""
+            app:srcCompat="@drawable/check"
+            />
+
+    </LinearLayout>
+
+    <!--    linear layout container : text "Settings" + icon "Gear"-->
+    <LinearLayout
+        android:id="@+id/settings_option"
+        android:layout_width=""
+        android:layout_height=""
+        android:background="@drawable/rounded_shadow"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width=""
+            android:layout_height=""
+            android:text="Settings"/>
+
+        <ImageView
+            android:layout_width=""
+            android:layout_height=""
+            app:srcCompat="@drawable/settings"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
