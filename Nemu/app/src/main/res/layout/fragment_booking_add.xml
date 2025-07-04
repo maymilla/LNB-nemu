@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BookingAddFragment"
+    android:orientation="vertical">
+
+    <!--    linear layout container for title : text "Add Booking" + back icon -->
+    <LinearLayout
+        android:id="@+id/booking_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+
+        >
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            app:srcCompat = "@drawable/back"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:text="Booking"
+            android:textSize="30sp"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            />
+
+    </LinearLayout>
+
+
+    <!--    search bar-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/inputContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_shadow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleView"
+        app:layout_constraintVertical_bias="0.078">
+
+
+        <!--        the search icon-->
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/search__2_" />
+
+        <!--        input text -->
+        <EditText
+            android:id="@+id/inputView"
+            android:layout_width="279dp"
+            android:layout_height="57dp"
+            android:hint="Search..."
+            android:inputType="text|textMultiLine"
+            android:layout_margin="10dp"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    grid view-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.05"
+            android:layout_margin="10dp"
+            android:text="Recommended"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+
+        <GridView
+            android:id="@+id/add_booking_grid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.95"
+            android:numColumns="2"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

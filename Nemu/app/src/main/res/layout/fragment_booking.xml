@@ -222,39 +222,39 @@
         </LinearLayout>
 
         <!--        add new booking  -->
-            <LinearLayout
-                android:id="@+id/add_new_booking_container"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+        <LinearLayout
+            android:id="@+id/add_new_booking_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:gravity="bottom"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+
+            app:layout_constraintTop_toBottomOf="@id/active_booking_container"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/history_booking_container"
+            >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="0.1"
-                android:gravity="bottom"
-                android:layout_margin="10dp"
-                android:orientation="horizontal"
+                app:srcCompat = "@drawable/plus"
+                android:layout_gravity="center_vertical"
+                />
 
-                app:layout_constraintTop_toBottomOf="@id/active_booking_container"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/history_booking_container"
-                >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:text="Add new booking"
+                android:layout_gravity="center_vertical"
+                android:textSize="15sp"
+                />
 
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.1"
-                    app:srcCompat = "@drawable/plus"
-                    android:layout_gravity="center_vertical"
-                    />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.9"
-                    android:text="Add new booking"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="Add new booking"
-                    />
-
-            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

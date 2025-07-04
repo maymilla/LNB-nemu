@@ -55,6 +55,11 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.play.services.maps)
+    implementation(libs.material)
+
+    // ✅ Slide to Act View
+    implementation("com.ncorti:slidetoact:0.9.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
