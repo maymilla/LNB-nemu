@@ -44,41 +44,59 @@ class PersonalFragment : Fragment(R.layout.fragment_personal) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val scheduleOption = view.findViewById<LinearLayout>(R.id.schedule_option)
+        val profileOption = view.findViewById<LinearLayout>(R.id.profile_option)
+        val settingsOption = view.findViewById<LinearLayout>(R.id.settings_option)
+        val bookmarkOption = view.findViewById<LinearLayout>(R.id.bookmark_option)
+        val bookingOption = view.findViewById<LinearLayout>(R.id.booking_option)
+
 //        schedule container
-        val scheduleContainer = view.findViewById<LinearLayout>(R.id.schedule_option)
-        scheduleContainer.setOnClickListener {
-            val intent = Intent(requireContext(), ScheduleFragment::class.java)
-            startActivity(intent)
+        scheduleOption.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ScheduleFragment()) // Replace with your container ID
+                .addToBackStack(null) // Optional
+                .commit()
         }
 
 //        profile container
-        val profileContainer = view.findViewById<LinearLayout>(R.id.profile_option)
-        profileContainer.setOnClickListener {
-            val intent = Intent(requireContext(), ProfileFragment::class.java)
-            startActivity(intent)
+
+        profileOption.setOnClickListener{
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, ProfileFragment()) // Replace with your container ID
+                .addToBackStack(null) // Optional
+                .commit()
+
         }
+
 
         //        settings container
-        val settingsContainer = view.findViewById<LinearLayout>(R.id.settings_option)
-        profileContainer.setOnClickListener {
-            val intent = Intent(requireContext(), SettingsFragment::class.java)
-            startActivity(intent)
+        settingsOption.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, SettingsFragment()) // Replace with your container ID
+                .addToBackStack(null) // Optional
+                .commit()
+
         }
 
-        //        bookmark container
-        val bookmarkContainer = view.findViewById<LinearLayout>(R.id.bookmark_option)
-        profileContainer.setOnClickListener {
-            val intent = Intent(requireContext(), BookmarkFragment::class.java)
-            startActivity(intent)
+
+        //        bookmark containers
+        bookmarkOption.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, BookmarkFragment()) // Replace with your container ID
+                .addToBackStack(null) // Optional
+                .commit()
+
         }
+
 
         //        bookings container
-        val bookingContainer = view.findViewById<LinearLayout>(R.id.booking_option)
-        profileContainer.setOnClickListener {
-            val intent = Intent(requireContext(), BookingFragment::class.java)
-            startActivity(intent)
-        }
+        bookingOption.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, BookingFragment()) // Replace with your container ID
+                .addToBackStack(null) // Optional
+                .commit()
 
+        }
     }
 
     companion object {

@@ -1,18 +1,14 @@
 package com.example.nemu
 
-import android.content.Context
 import android.os.Bundle
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AbsListView
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import java.sql.Time
+import java.util.Dictionary
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,13 +17,14 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ScheduleFragment.newInstance] factory method to
+ * Use the [ScheduleTimeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
+class ScheduleTimeFragment : Fragment(R.layout.fragment_schedule_time) {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,13 +39,14 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedule, container, false)
+        return inflater.inflate(R.layout.fragment_schedule_time, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val gridView = view.findViewById<android.widget.GridView>(R.id.places_to_visit_grid)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.scheduleRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         val photos1 = arrayListOf(R.drawable.place_1, R.drawable.place_2)
         val photos2 = arrayListOf(R.drawable.place_1, R.drawable.place_1)
@@ -71,7 +69,7 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                 price1,
                 0.0,
                 1000.0
-            ),
+                ),
             PlaceItem("Birm", "Jl. Melati No. 3", Crowdiness.Crowded, photos2,
                 Time(12 ,0,0),
                 Time(0 ,0,0),
@@ -92,19 +90,9 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
             ),
         )
 
-        val adapter = GridAdapter(requireContext(), sampleItems)
-        gridView.adapter = adapter
-
-        val createScheduleButton = view.findViewById<Button>(R.id.create_schedule_button)
-        createScheduleButton.setOnClickListener {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ScheduleTimeFragment()) // Replace with your container ID
-                .addToBackStack(null) // Optional
-                .commit()
-        }
-
+        val adapter = ScheduleAdapter(sampleItems)
+        recyclerView.adapter = adapter
     }
-
 
     companion object {
         /**
@@ -113,64 +101,16 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ScheduleFragment.
+         * @return A new instance of fragment ScheduleTimeFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ScheduleFragment().apply {
+            ScheduleTimeFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
             }
     }
-
-
-    class GridAdapter(private val context: Context, private val data: List<PlaceItem>) : BaseAdapter() {
-        override fun getCount() = data.size
-        override fun getItem(position: Int) = data[position]
-        override fun getItemId(position: Int) = position.toLong()
-
-        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-            val item = data[position]
-
-            // Root layout for each grid item
-            val layout = LinearLayout(context).apply {
-                orientation = LinearLayout.VERTICAL
-                gravity = Gravity.CENTER
-                layoutParams = AbsListView.LayoutParams(400, 400)
-            }
-
-            // ImageView
-            val imageView = android.widget.ImageView(context).apply {
-                layoutParams = LinearLayout.LayoutParams(150, 150)
-                scaleType = android.widget.ImageView.ScaleType.CENTER_CROP
-                val photoResId = item.photos.firstOrNull() ?: R.drawable.place_2
-                setImageResource(photoResId)
-            }
-
-            // Name TextView
-            val nameText = TextView(context).apply {
-                text = item.name
-                gravity = Gravity.CENTER
-                textSize = 16f
-                setPadding(0, 8, 0, 4)
-            }
-
-            // Address TextView
-            val addressText = TextView(context).apply {
-                text = item.address
-                gravity = Gravity.CENTER
-                textSize = 12f
-            }
-
-            layout.addView(imageView)
-            layout.addView(nameText)
-            layout.addView(addressText)
-
-            return layout
-        }
-    }
-
 }
