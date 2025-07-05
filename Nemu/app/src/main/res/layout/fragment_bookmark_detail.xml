@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BookingAddFragment"
+    android:orientation="vertical">
+
+    <!--    linear layout container for title : text "Bookmarks" + back icon -->
+    <LinearLayout
+        android:id="@+id/booking_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+
+        >
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            app:srcCompat = "@drawable/back"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:text="Bookmarks"
+            android:textSize="30sp"
+            android:layout_marginLeft="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            />
+
+    </LinearLayout>
+
+<!--    Main container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:background="@drawable/rounded_shadow"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        >
+
+<!--        image container -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:background="@drawable/rounded_shadow"
+            android:layout_margin="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_shadow"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat = "@drawable/place_1"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat = "@drawable/place_2"
+                    />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+<!--        title, address, crowdiness, open hours container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.17"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="vertical"
+            >
+
+<!--            title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Brimingham Museum of Art"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                />
+
+
+            <!--            address -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jl. Melati No. 5"
+                />
+
+            <!--            crowdiness -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Normal"
+                />
+
+            <!--            open hours -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+<!--                text "open" container-->
+                <TextView
+                    android:id="@+id/open_hour_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Open Hours : "
+                    />
+
+<!--                open hour -->
+                <TextView
+                    android:id="@+id/open_hour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="09.00 - 22.00"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    />
+
+<!--                close hour -->
+                <TextView
+                    android:id="@+id/close_hour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="09.00 - 22.00"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+<!--        description container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textStyle="bold"
+                />
+
+            <ScrollView
+                android:id="@+id/description_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_shadow"
+                android:padding="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/description_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="The Birmingham Museum of Art is a museum in Birmingham, Alabama. Its collection includes more than 24,000 paintings, sculptures, prints, drawings, and decorative arts representing various cultures, including Asian, European, American, African, Pre-Columbian, and Native American."
+                    />
+
+            </ScrollView>
+
+        </LinearLayout>
+
+<!--            container for each string in facilities -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:numColumns="1"
+            android:layout_weight="0.2"
+            android:padding="10dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Facilities"
+                android:textStyle="bold"
+                />
+            <GridView
+                android:id="@+id/facility_grid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numColumns="1"
+                android:layout_weight="0.225"
+                android:background="@drawable/rounded_shadow"
+                >
+
+            </GridView>
+        </LinearLayout>
+
+
+
+        <!--            container for each string in facilities -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:numColumns="1"
+            android:layout_weight="0.2"
+            android:padding="10dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prices"
+                android:textStyle="bold"
+                />
+            <GridView
+                android:id="@+id/price_grid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numColumns="1"
+                android:layout_weight="0.225"
+                android:background="@drawable/rounded_shadow"
+                >
+
+            </GridView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.nemu.BookingAddFragment.GridAdapter
+import java.sql.Time
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +37,70 @@ class BookmarkFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_bookmark, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val gridView = view.findViewById<android.widget.GridView>(R.id.bookmarks_grid)
+
+        val photos1 = arrayListOf(R.drawable.place_1, R.drawable.place_2)
+        val photos2 = arrayListOf(R.drawable.place_1, R.drawable.place_1)
+        val photos3 = arrayListOf(R.drawable.place_1, R.drawable.place_2)
+
+        val facilities1 : ArrayList<String> = arrayListOf("lorem", "ipsum")
+        val facilities2 : ArrayList<String> = arrayListOf("lorem", "lorem")
+        val facilities3 : ArrayList<String> = arrayListOf("ipsum, ipsum")
+
+        val price1 : MutableMap<Visitor, Double> = mutableMapOf(Visitor.Adult to 10000.0, Visitor.Teen to 5000.0, Visitor.Child to 1000.0)
+        val price2 : MutableMap<Visitor, Double> = mutableMapOf(Visitor.Adult to 100.0, Visitor.Teen to 50.0, Visitor.Child to 10.0)
+        val price3 : MutableMap<Visitor, Double> = mutableMapOf(Visitor.Adult to 1000.0, Visitor.Teen to 500.0, Visitor.Child to 100.0)
+
+        val sampleItems = listOf(
+            PlaceItem("Birmingham Musem", "Jl. Melati No. 5", Crowdiness.Crowded, photos1,
+                Time(12 ,0,0),
+                Time(22 ,0,0),
+                "Lorem",
+                facilities1,
+                price1,
+                0.0,
+                1000.0
+            ),
+            PlaceItem("Birm", "Jl. Melati No. 3", Crowdiness.Crowded, photos2,
+                Time(12 ,0,0),
+                Time(0 ,0,0),
+                "Lorem",
+                facilities2,
+                price2,
+                0.0,
+                5000.0
+            ),
+            PlaceItem("Birmingham", "Jl. Melati No. 5", Crowdiness.Crowded, photos3,
+                Time(5 ,0,0),
+                Time(22 ,0,0),
+                "Lorem",
+                facilities3,
+                price3,
+                0.0,
+                100.0
+            ),
+        )
+
+        val adapter = GridAdapter(requireContext(), sampleItems) { clickedItem ->
+            // Navigate to the details fragment with the clicked PlaceItem
+            val bundle = Bundle().apply {
+                putSerializable("placeItem", clickedItem)
+            }
+
+            val bookmarkDetailFragment = BookmarkDetailFragment()
+            bookmarkDetailFragment.arguments = bundle
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, bookmarkDetailFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+        gridView.adapter = adapter
     }
 
     companion object {
