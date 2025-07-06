@@ -10,6 +10,9 @@ import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.BaseAdapter
 import android.widget.Button
+import android.widget.GridView
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.nemu.ScheduleFragment.GridAdapter
 import java.sql.Time
@@ -48,65 +51,53 @@ class BookingAddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val gridView = view.findViewById<android.widget.GridView>(R.id.add_booking_grid)
+        val gridView = view.findViewById<GridView>(R.id.add_booking_grid)
 
+        // Sample data
         val photos1 = arrayListOf(R.drawable.place_1, R.drawable.place_2)
         val photos2 = arrayListOf(R.drawable.place_1, R.drawable.place_1)
         val photos3 = arrayListOf(R.drawable.place_1, R.drawable.place_2)
 
-        val facilities1 : ArrayList<String> = arrayListOf("lorem", "ipsum")
-        val facilities2 : ArrayList<String> = arrayListOf("lorem", "lorem")
-        val facilities3 : ArrayList<String> = arrayListOf("ipsum, ipsum")
+        val facilities1 = arrayListOf("lorem", "ipsum")
+        val facilities2 = arrayListOf("lorem", "lorem")
+        val facilities3 = arrayListOf("ipsum", "ipsum")
 
-        val price1 : MutableMap<Visitor, Double> = mutableMapOf(Visitor.Adult to 10000.0, Visitor.Teen to 5000.0, Visitor.Child to 1000.0)
-        val price2 : MutableMap<Visitor, Double> = mutableMapOf(Visitor.Adult to 100.0, Visitor.Teen to 50.0, Visitor.Child to 10.0)
-        val price3 : MutableMap<Visitor, Double> = mutableMapOf(Visitor.Adult to 1000.0, Visitor.Teen to 500.0, Visitor.Child to 100.0)
+        val price1 = mutableMapOf(Visitor.Adult to 10000.0, Visitor.Teen to 5000.0, Visitor.Child to 1000.0)
+        val price2 = mutableMapOf(Visitor.Adult to 100.0, Visitor.Teen to 50.0, Visitor.Child to 10.0)
+        val price3 = mutableMapOf(Visitor.Adult to 1000.0, Visitor.Teen to 500.0, Visitor.Child to 100.0)
 
         val sampleItems = listOf(
-            PlaceItem("Birmingham Musem", "Jl. Melati No. 5", Crowdiness.Crowded, photos1,
-                Time(12 ,0,0),
-                Time(22 ,0,0),
-                "Lorem",
-                facilities1,
-                price1,
-                0.0,
-                1000.0
-            ),
+            PlaceItem("Birmingham Museum", "Jl. Melati No. 5", Crowdiness.Crowded, photos1,
+                Time(12, 0, 0), Time(22, 0, 0), "Lorem", facilities1, price1, 0.0, 1000.0),
             PlaceItem("Birm", "Jl. Melati No. 3", Crowdiness.Crowded, photos2,
-                Time(12 ,0,0),
-                Time(0 ,0,0),
-                "Lorem",
-                facilities2,
-                price2,
-                0.0,
-                5000.0
-            ),
+                Time(12, 0, 0), Time(0, 0, 0), "Lorem", facilities2, price2, 0.0, 5000.0),
             PlaceItem("Birmingham", "Jl. Melati No. 5", Crowdiness.Crowded, photos3,
-                Time(5 ,0,0),
-                Time(22 ,0,0),
-                "Lorem",
-                facilities3,
-                price3,
-                0.0,
-                100.0
-            ),
+                Time(5, 0, 0), Time(22, 0, 0), "Lorem", facilities3, price3, 0.0, 100.0)
         )
 
+        // Adapter with click handling
         val adapter = GridAdapter(requireContext(), sampleItems) { clickedItem ->
-            // Navigate to the details fragment with the clicked PlaceItem
             val bundle = Bundle().apply {
                 putSerializable("placeItem", clickedItem)
             }
 
-            val bookingAddPlaceFragment = BookingAddPlaceFragment()
-            bookingAddPlaceFragment.arguments = bundle
+            val destinationFragment = BookingAddPlaceFragment().apply {
+                arguments = bundle
+            }
 
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, bookingAddPlaceFragment)
+                .replace(R.id.fragment_container, destinationFragment)
                 .addToBackStack(null)
                 .commit()
         }
+
         gridView.adapter = adapter
+
+        // Back button
+        val backButton = view.findViewById<ImageView>(R.id.back_button)
+        backButton?.setOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
     }
 
     companion object {
@@ -140,18 +131,27 @@ class BookingAddFragment : Fragment() {
         override fun getItemId(position: Int) = position.toLong()
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val view = convertView ?: LayoutInflater.from(context)
+                .inflate(R.layout.booking_grid_item_place, parent, false)
+
             val item = data[position]
 
-            val textView = TextView(context).apply {
-                text = item.name
-                gravity = Gravity.CENTER
-                setPadding(16, 16, 16, 16)
-                layoutParams = AbsListView.LayoutParams(200, 200)
-                setOnClickListener { onItemClick(item) }
+            val imageView = view.findViewById<ImageView>(R.id.place_image)
+            val nameView = view.findViewById<TextView>(R.id.place_name)
+            val addressView = view.findViewById<TextView>(R.id.place_address)
+
+            // Use first photo or fallback
+            imageView.setImageResource(item.photos.firstOrNull() ?: R.drawable.place_1)
+            nameView.text = item.name
+            addressView.text = item.address
+
+            view.setOnClickListener {
+                onItemClick(item)
             }
 
-            return textView
+            return view
         }
     }
+
 
 }

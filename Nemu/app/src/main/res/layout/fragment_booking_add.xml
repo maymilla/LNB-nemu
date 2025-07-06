@@ -19,6 +19,7 @@
         >
 
         <ImageView
+            android:id="@+id/back_button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
@@ -30,7 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
-            android:text="Booking"
+            android:text="Add Booking"
             android:textSize="30sp"
             android:layout_marginLeft="20dp"
             android:textStyle="bold"

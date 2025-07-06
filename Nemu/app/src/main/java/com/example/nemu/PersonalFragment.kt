@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,11 +45,11 @@ class PersonalFragment : Fragment(R.layout.fragment_personal) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val scheduleOption = view.findViewById<LinearLayout>(R.id.schedule_option)
-        val profileOption = view.findViewById<LinearLayout>(R.id.profile_option)
-        val settingsOption = view.findViewById<LinearLayout>(R.id.settings_option)
-        val bookmarkOption = view.findViewById<LinearLayout>(R.id.bookmark_option)
-        val bookingOption = view.findViewById<LinearLayout>(R.id.booking_option)
+        val scheduleOption = view.findViewById<ConstraintLayout>(R.id.schedule_option)
+        val profileOption = view.findViewById<ConstraintLayout>(R.id.profile_option)
+        val settingsOption = view.findViewById<ConstraintLayout>(R.id.settings_option)
+        val bookmarkOption = view.findViewById<ConstraintLayout>(R.id.bookmark_option)
+        val bookingOption = view.findViewById<ConstraintLayout>(R.id.booking_option)
 
 //        schedule container
         scheduleOption.setOnClickListener {

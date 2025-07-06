@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.BaseAdapter
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import java.sql.Time
@@ -101,6 +102,13 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule) {
                 .replace(R.id.fragment_container, ScheduleTimeFragment()) // Replace with your container ID
                 .addToBackStack(null) // Optional
                 .commit()
+        }
+
+        val backButton = view.findViewById<ImageView>(R.id.back_button)
+        backButton.setOnClickListener {
+            // Option 1: Go back in fragment stack
+            parentFragmentManager.popBackStack()
+
         }
 
     }

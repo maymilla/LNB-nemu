@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,6 +37,27 @@ class BookingFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_booking, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val backButton = view.findViewById<ImageView>(R.id.back_button)
+        backButton.setOnClickListener {
+            // Option 1: Go back in fragment stack
+            parentFragmentManager.popBackStack()
+
+        }
+
+//        navigation for add new booking
+        val addNewBookingContainer = view.findViewById<LinearLayout>(R.id.add_new_booking_container)
+        addNewBookingContainer.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, BookingAddFragment()) // Replace with your container ID
+                .addToBackStack(null) // Optional
+                .commit()
+        }
+
     }
 
     companion object {

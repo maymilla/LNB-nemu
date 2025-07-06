@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.sql.Time
@@ -92,6 +93,13 @@ class ScheduleTimeFragment : Fragment(R.layout.fragment_schedule_time) {
 
         val adapter = ScheduleAdapter(sampleItems)
         recyclerView.adapter = adapter
+
+        val backButton = view.findViewById<ImageView>(R.id.back_button)
+        backButton.setOnClickListener {
+            // Option 1: Go back in fragment stack
+            parentFragmentManager.popBackStack()
+
+        }
     }
 
     companion object {
