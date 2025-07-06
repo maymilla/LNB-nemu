@@ -31,45 +31,55 @@
     </LinearLayout>
 
 <!--    linear layout container : text "Profile" + icon "Person"-->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profile_option"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".3"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:padding="10dp"
         android:background="@drawable/rounded_shadow"
         >
 
         <ImageView
+            android:id="@+id/personal_icon"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:minWidth="10dp"
-            android:minHeight="10dp"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/person"
             android:layout_gravity="center_vertical"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.1"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/personal_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
             />
 
         <TextView
+            android:id="@+id/personal_text"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.9"
+            android:layout_height="match_parent"
             android:text="Profile"
             android:textSize="12sp"
-            android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.9"
+
+            app:layout_constraintLeft_toRightOf="@id/personal_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
             />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    linear layout container : text "Schedule" + icon "Calendar"-->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/schedule_option"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.3"
+        android:layout_height="wrap_content"
         android:background="@drawable/rounded_shadow"
         android:orientation="horizontal"
         android:padding="10dp"
@@ -78,17 +88,24 @@
         >
 
         <ImageView
+            android:id="@+id/schedule_icon"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:minWidth="10dp"
-            android:minHeight="10dp"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/calendar"
             android:layout_gravity="center_vertical"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.1"
+
+            app:layout_constraintRight_toLeftOf="@id/schedule_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
 
             />
 
         <TextView
+            android:id="@+id/schedule_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
@@ -96,51 +113,73 @@
             android:textSize="12sp"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.9"
+
+            app:layout_constraintLeft_toRightOf="@id/schedule_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
             />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    linear layout container : text "Bookmark" + icon "Bookmark"-->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bookmark_option"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".3"
+        android:layout_height="wrap_content"
         android:background="@drawable/rounded_shadow"
         android:orientation="horizontal"
         android:layout_margin="10dp"
         android:padding="10dp"
         >
 
+
         <ImageView
+            android:id="@+id/bookmark_icon"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:minWidth="10dp"
-            android:minHeight="10dp"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/bookmark_hollow"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center|center_vertical"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.1"
+
+            app:layout_constraintRight_toLeftOf="@id/bookmark_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
 
             />
 
         <TextView
+            android:id="@+id/bookmark_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
-            android:text="Bookmark"
+            android:text="Schedule"
             android:textSize="12sp"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.9"
+
+            app:layout_constraintLeft_toRightOf="@id/bookmark_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
             />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    linear layout container : text "Booking" + icon "Check"-->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/booking_option"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.3"
+        android:layout_height="wrap_content"
         android:background="@drawable/rounded_shadow"
         android:orientation="horizontal"
         android:layout_margin="10dp"
@@ -148,33 +187,47 @@
         >
 
         <ImageView
+            android:id="@+id/booking_icon"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:minWidth="10dp"
-            android:minHeight="10dp"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/check"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center|center_vertical"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.1"
+
+            app:layout_constraintRight_toLeftOf="@id/booking_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+
             />
 
         <TextView
+            android:id="@+id/booking_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
-            android:text="Booking"
+            android:text="Bookings"
             android:textSize="12sp"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.9"
+
+            app:layout_constraintLeft_toRightOf="@id/booking_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--    linear layout container : text "Settings" + icon "Gear"-->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/settings_option"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.3"
+        android:layout_height="wrap_content"
         android:background="@drawable/rounded_shadow"
         android:orientation="horizontal"
         android:layout_margin="10dp"
@@ -182,25 +235,39 @@
         >
 
         <ImageView
+            android:id="@+id/settings_icon"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:minWidth="10dp"
-            android:minHeight="10dp"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/settings"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center|center_vertical"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.1"
+
+            app:layout_constraintRight_toLeftOf="@id/settings_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
             />
 
         <TextView
+            android:id="@+id/settings_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.9"
-            android:text="Settings"
+            android:text="Schedule"
             android:textSize="12sp"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.9"
+
+            app:layout_constraintLeft_toRightOf="@id/settings_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
