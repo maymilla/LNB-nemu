@@ -21,23 +21,24 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/inputContainer"
-        android:layout_width="350dp"
-        android:layout_height="95dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/rounded_shadow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleView"
-        app:layout_constraintVertical_bias="0.078">
+        app:layout_constraintVertical_bias="0.078"
+        android:padding="10dp">
 
 
         <!--        the search icon-->
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_margin="15dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_percent="0.1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -48,7 +49,6 @@
             android:id="@+id/inputView"
             android:layout_width="279dp"
             android:layout_height="57dp"
-            android:layout_margin="20dp"
             android:hint="Describe what you want to do in detail..."
             android:inputType="text|textMultiLine"
             android:padding="10dp"
